@@ -1,14 +1,11 @@
 package JEspa.corrector;
 
-import JEspa.util.CorrectorUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Corrector {
-    private final CorrectorUtil util;
     private static final String DICTIONARY = null;
     /*
     La función corregir y la clase JEspa.corrector.Corrector están nombradas en castellano por coherencia con su uso
@@ -17,7 +14,6 @@ public class Corrector {
     We use UTF-8 because of manners
     */
     public Corrector( ) {
-        util = new CorrectorUtil();
     }
 
     /*
@@ -25,7 +21,7 @@ public class Corrector {
     For a word of length n, there will be n deletions, n-1 transpositions, 26n alterations, and 26(n+1) insertions,
     for a total of 54n+25.
      */
-    public static List<String> editsOne(String word){
+     List<String> editsOne(String word){
         String letters = "abcdefghijklmnñopqrstuvwxyz";
         List<String[]> combinations = new ArrayList<>();
         List<String> deletes = new ArrayList<>();
@@ -74,7 +70,12 @@ public class Corrector {
         }
 
         return Stream.of(deletes.stream(), transposes.stream(),
-                remplaces.stream(), inserts.stream()).flatMap(Function.identity()).map(Object::toString).toList();
+                remplaces.stream(), inserts.stream()).flatMap(Function.identity())
+                .map(Object::toString).toList();
+    }
+
+    void known(ArrayList<String> words){
+
     }
 
 }

@@ -1,10 +1,11 @@
-import JEspa.util.CorrectorUtil;
+import JEspa.util.CsvManager;
 
 import java.io.IOException;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        CorrectorUtil util = new CorrectorUtil();
-        util.spacebasedToCSV(null, null);
+        CsvManager.spacebasedToCSV("./data/frecuencia_formas_ortograficas_1_0.txt",
+                "./data/frecuenciaFormas.csv");
+
     }
 }
