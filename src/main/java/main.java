@@ -1,14 +1,10 @@
-import java.util.List;
+import JEspa.util.CorrectorUtil;
+
+import java.io.IOException;
 
 public class main {
-    public static void main(String[] args) {
-        List<String> list = new Corrector().editsOne("concatenación");
-
-        for (String words : list){
-            System.out.println(words);
-        }
-
-        System.out.println(list.size());
-
+    public static void main(String[] args) throws IOException {
+        CorrectorUtil util = new CorrectorUtil();
+        util.spacebasedToCSV(null, null);
     }
 }
