@@ -42,7 +42,7 @@ public class Corrector {
         //Deletions
         int count = 0;
         for (String[] tuple : combinations){
-            if (!tuple[1].equals("")){
+            if (!tuple[1].equals("")){ //to avoid out of bound exception in the last split
                 deletes.add(tuple[0] + tuple[1].substring(1));
             }
         }

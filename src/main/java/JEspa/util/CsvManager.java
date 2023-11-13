@@ -1,6 +1,7 @@
 package JEspa.util;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 
 public class CsvManager {
@@ -34,21 +35,34 @@ public class CsvManager {
     /*
     Return the column that corresponds wih the passed index
      */
-    public ArrayList<String> getOneColum(int column){
-        ArrayList<String> words = new ArrayList<>();
+    ArrayList<String> getOneColum(int column){
+        ArrayList<String> elements = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(CSV));
 
             String[] row;
             while (reader.ready()){
                 row = reader.readLine().split(",([^,*])"); //Allow have "," in a column
-                words.add(row[column]);
+                elements.add(row[column]);
             }
         } catch (IOException e) {throw new RuntimeException(e);
         }
 
-        return words;
+        return elements;
     }
 
+    /*
+    Construct a dictionary based on the column specified of the .csv
+    First delete the actual dictionary and create one new
+     */
+    public void constructDictionary(int column){
+        ArrayList<String> words = getOneColum(column);
 
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("./data/dictionary.txt"));
+            for (String element : words){
+                writer.write(element + "\n");
+            }
+        } catch (IOException e) {throw new RuntimeException(e);}
+    }
 }
