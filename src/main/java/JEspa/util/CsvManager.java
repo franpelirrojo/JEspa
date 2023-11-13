@@ -31,20 +31,19 @@ public class CsvManager {
         }
     }
 
-    ArrayList<String> words(){
+    /*
+    Return the column that corresponds wih the passed index
+     */
+    public ArrayList<String> getOneColum(int column){
         ArrayList<String> words = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(CSV));
 
             String[] row;
             while (reader.ready()){
-                row = reader.readLine().split(",");;
-
-                for (int i = 0; i < row.length - 1; i++){
-                    words.add(row[1]);
-                }
+                row = reader.readLine().split(",([^,*])"); //Allow have "," in a column
+                words.add(row[column]);
             }
-        } catch (FileNotFoundException e) {throw new RuntimeException(e);
         } catch (IOException e) {throw new RuntimeException(e);
         }
 
