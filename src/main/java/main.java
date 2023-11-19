@@ -1,14 +1,10 @@
-import JEspa.corrector.Corrector;
-import JEspa.util.CsvManager;
+import jespa.util.CsvManager;
+import jespa.util.Scraper;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        CsvManager csvManager = new CsvManager("./data/frecuenciaFormas.csv");
-
-        csvManager.constructDictionary(0);
+        new Scraper().upgradeWords();
     }
 }

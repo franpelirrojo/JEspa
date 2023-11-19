@@ -1,9 +1,7 @@
-package JEspa.corrector;
+package jespa.corrector;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Stream;
 

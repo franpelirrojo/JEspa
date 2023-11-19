@@ -1,7 +1,6 @@
-package JEspa.util;
+package jespa.util;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 
 public class CsvManager {
